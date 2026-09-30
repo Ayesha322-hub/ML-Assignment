@@ -1,0 +1,7 @@
+[core]
+    remote = storage
+['remote "storage"']
+    url = https://dagshub.com/Ayesha322-hub/ML-Assignment.dvc
+    auth = basic
+    user = Ayesha322-hub
+    password = 2e8e570fc8980259f9ea86558366b272b239ea63
