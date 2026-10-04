@@ -1,8 +1,8 @@
 {
-    "commit_sha": "d9e0d53d46fca8095da49b1f8a936c31364d392d",
+    "commit_sha": "e7449c3dd247cd2eeaee574c4b1556357c71f099",
     "seed": 42,
-    "accuracy": 0.165,
-    "precision": 0.1474,
-    "recall": 0.14,
-    "f1": 0.1436
+    "accuracy": 0.3,
+    "precision": 0.2959,
+    "recall": 0.29,
+    "f1": 0.2929
 }
