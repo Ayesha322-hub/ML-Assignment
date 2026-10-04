@@ -1,0 +1,42 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python src/prepare.py
+    deps:
+    - path: params.yaml
+      md5: 7c8994e1a89b02f55fdda882f06e5312
+    - path: src/features.py
+      md5: 7fedc162203decd5a5c79eb3abad0a08
+    - path: src/prepare.py
+      md5: 5c846e4230d1268a744356fccaeb00ae
+    outs:
+    - path: data/processed/test.csv
+      md5: 46a0a2ba0eb3fc76c167965f993e0475
+    - path: data/processed/train.csv
+      md5: 9b9b4710729e900672b1c3f4a68a27be
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: data/processed/train.csv
+      md5: 9b9b4710729e900672b1c3f4a68a27be
+    - path: params.yaml
+      md5: 7c8994e1a89b02f55fdda882f06e5312
+    - path: src/train.py
+      md5: 402a05de3ad94030eb3029847a060b07
+    outs:
+    - path: models/model.joblib
+      md5: c207af9154c5f160ccc4468b56b9b4db
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - path: data/processed/test.csv
+      md5: 46a0a2ba0eb3fc76c167965f993e0475
+    - path: models/model.joblib
+      md5: c207af9154c5f160ccc4468b56b9b4db
+    - path: params.yaml
+      md5: 7c8994e1a89b02f55fdda882f06e5312
+    - path: src/evaluate.py
+      md5: 937ea05a02ee9613799c8a8c32285651
+    metrics:
+    - path: metrics.json
+      md5: ab6fa6a930bd4085118650796e4688db
